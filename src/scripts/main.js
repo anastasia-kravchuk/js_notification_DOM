@@ -1,6 +1,6 @@
 'use strict';
 
-const pushNotification = (posTop, posRight, title, description, type) => {
+const pushNotification = (coordinates, title, description, type) => {
   const container = document.createElement('div');
 
   container.classList.add('notification');
@@ -29,8 +29,8 @@ const pushNotification = (posTop, posRight, title, description, type) => {
   container.appendChild(pElement);
 
   container.style.position = 'absolute';
-  container.style.top = `${Number(posTop)}px`;
-  container.style.right = `${Number(posRight)}px`;
+  container.style.top = `${Number(coordinates.top)}px`;
+  container.style.right = `${Number(coordinates.right)}px`;
 
   document.body.appendChild(container);
 
@@ -40,24 +40,30 @@ const pushNotification = (posTop, posRight, title, description, type) => {
 };
 
 pushNotification(
-  10,
-  10,
+  {
+    top: 10,
+    right: 10,
+  },
   'Title of Success message',
   'Message example.\n ' + 'Notification should contain title and description.',
   'success',
 );
 
 pushNotification(
-  150,
-  10,
+  {
+    top: 150,
+    right: 10,
+  },
   'Title of Error message',
   'Message example.\n ' + 'Notification should contain title and description.',
   'error',
 );
 
 pushNotification(
-  290,
-  10,
+  {
+    top: 290,
+    right: 10,
+  },
   'Title of Warning message',
   'Message example.\n ' + 'Notification should contain title and description.',
   'warning',
